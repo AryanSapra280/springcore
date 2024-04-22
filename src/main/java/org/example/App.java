@@ -12,9 +12,10 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-        Student student = (Student) context.getBean("student1");
-        System.out.println(student.toString());
         Traveller traveller = (Traveller) context.getBean("Traveller1");
         System.out.println(traveller.toString());
+        Student student = (Student) context.getBean("student1");
+        System.out.println(student.toString());
+
     }
 }
