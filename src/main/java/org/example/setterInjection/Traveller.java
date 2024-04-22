@@ -1,4 +1,4 @@
-package org.example;
+package org.example.setterInjection;
 
 import java.util.List;
 

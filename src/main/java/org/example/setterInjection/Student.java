@@ -1,4 +1,6 @@
-package org.example;
+package org.example.setterInjection;
+
+import org.example.setterInjection.Address;
 
 public class Student {
     private Integer id;

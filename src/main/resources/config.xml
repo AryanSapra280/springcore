@@ -7,7 +7,7 @@
   http://www.springframework.org/schema/context
   http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean class="org.example.Traveller" name="Traveller1">
+    <bean class="org.example.setterInjection.Traveller" name="Traveller1">
         <property name="travellerName" value="Kartik" />
         <property name="places">
             <list>
@@ -18,13 +18,13 @@
         </property>
     </bean>
 <!--    Student depends on Address class. So, we will define Address class' object first-->
-    <bean class="org.example.Address" name="address1">
+    <bean class="org.example.setterInjection.Address" name="address1">
         <property name="city" value="Bengaluru"/>
         <property name="country" value="India"/>
     </bean>
 
     <!--    this is our student bean that depends on Address class-->
-    <bean class="org.example.Student" name="student1" >
+    <bean class="org.example.setterInjection.Student" name="student1" >
         <property name="id" value="0"/>
         <property name="name" value="Aryan"/>
         <property name="address">
@@ -32,4 +32,21 @@
         </property>
     </bean>
 
+<!--    Now let's see the constructor injection-->
+    <bean class="org.example.constructorInjection.Person" name="person1">
+        <constructor-arg value="Aryan"/>
+        <!--        this 10 value will be assigned to an Integer type variable. So, Spring is so intelligent -->
+        <!--        that it itself understands and convert the String 10 to Integer 10-->
+<!--        So, by default this 10 value will be considered as String, but this may give issue when we have constructor overloading-->
+<!--        and we have one constructor which take second arg as String and other takes as Integer. Now, Spring will prefer the String one-->
+<!--        always. So, in this cases, we need to mention type = "Integer" or whatever the type of second arg.-->
+        <constructor-arg value="10" type="Integer"/>
+<!--        See at this last constructor injection, address1 is an obejct created by IoC container through setter injection and-->
+<!--        IoC is using it to create Person class' object through contructor injection. So, anyway is right for doing dependency injection-->
+        <constructor-arg ref="address1"/>
+    </bean>
+
+    <bean class="org.example.lifeCycle.Samosa" name="samosa" init-method="init" destroy-method="destroy">
+        <property name="price" value="12"/>
+    </bean>
 </beans>

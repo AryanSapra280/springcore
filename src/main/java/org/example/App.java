@@ -1,6 +1,11 @@
 package org.example;
 
+import org.example.constructorInjection.Person;
+import org.example.lifeCycle.Samosa;
+import org.example.setterInjection.Student;
+import org.example.setterInjection.Traveller;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -12,10 +17,21 @@ public class App
     public static void main( String[] args )
     {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+
         Traveller traveller = (Traveller) context.getBean("Traveller1");
         System.out.println(traveller.toString());
         Student student = (Student) context.getBean("student1");
         System.out.println(student.toString());
 
+        System.out.println("Printing object which was injected through constructor injection");
+        Person person = (Person) context.getBean("person1");
+        System.out.println(person.toString());
+
+        //AbstractApplicationContext interface is used because this interface has registerShutdownHook() method
+        AbstractApplicationContext abstractContext = new ClassPathXmlApplicationContext("config.xml");
+        System.out.println("IoC container will call the init for Samosa bean");
+        Samosa samosa = (Samosa) abstractContext.getBean("samosa");
+        System.out.println(samosa);
+        abstractContext.registerShutdownHook();//will be used to tell IoC that you need to call destroy method.
     }
 }
