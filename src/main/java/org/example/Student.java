@@ -3,16 +3,16 @@ package org.example;
 public class Student {
     private Integer id;
     private String name;
-    private String studentaAddress;
+    private String studentAddress;
 
     public Student() {
         ;
     }
 
-    public Student(Integer id, String name, String studentaAddress) {
+    public Student(Integer id, String name, String studentAddress) {
         this.id = id;
         this.name = name;
-        this.studentaAddress = studentaAddress;
+        this.studentAddress = studentAddress;
     }
 
     public Integer getId() {
@@ -31,12 +31,12 @@ public class Student {
         this.name = name;
     }
 
-    public String getStudentaAddress() {
-        return studentaAddress;
+    public String getStudentAddress() {
+        return studentAddress;
     }
 
-    public void setStudentaAddress(String studentaAddress) {
-        this.studentaAddress = studentaAddress;
+    public void setStudentAddress(String studentAddress) {
+        this.studentAddress = studentAddress;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", studentaAddress='" + studentaAddress + '\'' +
+                ", studentAddress='" + studentAddress + '\'' +
                 '}';
     }
 }
