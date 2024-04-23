@@ -7,6 +7,7 @@
   http://www.springframework.org/schema/context
   http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:annotation-config/>
     <bean class="org.example.setterInjection.Traveller" name="Traveller1">
         <property name="travellerName" value="Kartik" />
         <property name="places">
@@ -48,5 +49,11 @@
 
     <bean class="org.example.lifeCycle.Samosa" name="samosa" init-method="init" destroy-method="destroy">
         <property name="price" value="12"/>
+    </bean>
+    <bean class="org.example.lifeCycle.PepsiWithInterface" name="pepsi">
+        <property name="price" value="50"/>
+    </bean>
+    <bean class="org.example.lifeCycle.PizzaWithAnnotation" name="pizza">
+        <property name="price" value="50"/>
     </bean>
 </beans>

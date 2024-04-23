@@ -1,6 +1,8 @@
 package org.example;
 
 import org.example.constructorInjection.Person;
+import org.example.lifeCycle.PepsiWithInterface;
+import org.example.lifeCycle.PizzaWithAnnotation;
 import org.example.lifeCycle.Samosa;
 import org.example.setterInjection.Student;
 import org.example.setterInjection.Traveller;
@@ -33,5 +35,12 @@ public class App
         Samosa samosa = (Samosa) abstractContext.getBean("samosa");
         System.out.println(samosa);
         abstractContext.registerShutdownHook();//will be used to tell IoC that you need to call destroy method.
+
+        PepsiWithInterface pepsi = (PepsiWithInterface) abstractContext.getBean("pepsi");
+        System.out.println(pepsi.toString());
+
+        PizzaWithAnnotation pizza = (PizzaWithAnnotation) abstractContext.getBean("pizza");
+        System.out.println(pizza.toString());
+        abstractContext.registerShutdownHook();
     }
 }
