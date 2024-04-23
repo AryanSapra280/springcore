@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.autowiring.autowiringUsingXml.Address;
+import org.example.autowiring.autowiringUsingXml.Employee;
 import org.example.constructorInjection.Person;
 import org.example.lifeCycle.PepsiWithInterface;
 import org.example.lifeCycle.PizzaWithAnnotation;
@@ -42,5 +44,13 @@ public class App
         PizzaWithAnnotation pizza = (PizzaWithAnnotation) abstractContext.getBean("pizza");
         System.out.println(pizza.toString());
         abstractContext.registerShutdownHook();
+
+        System.out.println("Autowiring");
+        Address address = (Address) abstractContext.getBean("address");
+        System.out.println(address);
+//        Employee employee = (Employee) abstractContext.getBean("employee");
+        Employee employee = abstractContext.getBean("employee",Employee.class);
+        System.out.println(employee.toString());
+
     }
 }

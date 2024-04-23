@@ -56,4 +56,10 @@
     <bean class="org.example.lifeCycle.PizzaWithAnnotation" name="pizza">
         <property name="price" value="50"/>
     </bean>
+
+    <bean class="org.example.autowiring.autowiringUsingXml.Address" name="address">
+        <property name="city" value="Noida"/>
+        <property name="country" value="India"/>
+    </bean>
+    <bean class="org.example.autowiring.autowiringUsingXml.Employee" name="employee" autowire="byName"/>
 </beans>
