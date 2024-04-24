@@ -1,7 +1,9 @@
 package org.example;
 
+import org.example.autowiring.autowiringUsingAnnotation.University;
 import org.example.autowiring.autowiringUsingXml.Address;
 import org.example.autowiring.autowiringUsingXml.Employee;
+import org.example.componentAnnotation.College;
 import org.example.constructorInjection.Person;
 import org.example.lifeCycle.PepsiWithInterface;
 import org.example.lifeCycle.PizzaWithAnnotation;
@@ -51,6 +53,14 @@ public class App
 //        Employee employee = (Employee) abstractContext.getBean("employee");
         Employee employee = abstractContext.getBean("employee",Employee.class);
         System.out.println(employee.toString());
+
+        University university = abstractContext.getBean("university",University.class);
+        System.out.println(university);
+
+
+        //bean created using @Component
+        College college = abstractContext.getBean("college", College.class);
+        System.out.println(college);
 
     }
 }
